@@ -1,25 +1,34 @@
 <?php
+$params = require(__DIR__ . "/params.php");
 
-$params = require(__DIR__ . '/params.php');
+date_default_timezone_set("Asia/Shanghai"); //日志
 
 $config = [
-    'id' => 'basic',
+    'id' => 'Yii2-CMS-Template',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+        'user' => [
+            'identityClass' => 'app\models\AdminUser',
+            'enableAutoLogin' => true,
+            'loginUrl' => ['login/login']
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => md5('ClavinLee'),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -37,7 +46,8 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => require(__DIR__ . '/db_admin.php'),
+        'db2' => require(__DIR__ . '/db_app.php'),
     ],
     'params' => $params,
 ];

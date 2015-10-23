@@ -5,21 +5,30 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use app\models\AdminLogin;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\AdminUser;
+use app\controllers\BaseController;
 
-class SiteController extends Controller
-{
-    public function behaviors()
-    {
+/**
+ * Site controller
+ */
+class SiteController extends BaseController {
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -28,67 +37,72 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
     }
 
-    public function actions()
-    {
+    /**
+     * @inheritdoc
+     */
+    public function actions() {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+//            'error' => [
+//                'class' => 'yii\web\ErrorAction',
+//            ],
         ];
     }
 
-    public function actionIndex()
-    {
-        return $this->render('index');
+    public function actionIndex() {
+        if (!\Yii::$app->user->isGuest) {
+            return $this->render('index');
+        } else {
+            $model = new AdminLogin();
+            return $this->renderPartial('login', ['model' => $model]);
+        }
     }
 
-    public function actionLogin()
-    {
+    /*
+     * User login
+     */
+
+    public function actionLogin() {
+
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
-        $model = new LoginForm();
+        $model = new AdminLogin();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
+        } else {
+            return $this->renderPartial('login', ['model' => $model]);
         }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
 
-    public function actionLogout()
-    {
+    /*
+     * User exit
+     */
+
+    public function actionLogout() {
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
 
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
+    /**
+     * Display error message
+     */
+    public function actionError() { 
+          $message =  \Yii::$app->errorHandler->exception->getMessage();
+          $code= \Yii::$app->errorHandler->exception->getCode();
+         return $this->render('new_error',[
+             'message'=>$message,
+             'code'=>$code,
+         ]);
+           
+        
     }
 }
+        

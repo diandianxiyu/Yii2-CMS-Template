@@ -1,31 +1,21 @@
-Yii 2 Basic Project Template
+Content management system based on Yii2
 ============================
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+This project is based on the development of Basic Yii2, the internal integration of the
+- based on the role of the RBAC Yii2 based content management system, the management process is fully prepared
+- integrated RBAC permissions menu management system, support for custom tags
+- user data modification module
+- Integrated app on-line version of the module, support iOS and Android two versions were on the line
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
-
-DIRECTORY STRUCTURE
+Third party SDK integration
 -------------------
 
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
+- Ali rivers Taobao server SDK
+- Ali cloud OSS file upload SDK, and integrated into the module, the need to modify the configuration file to enable
+- Friends of the union push
+- Baidu Ueditor
+- validation, JS verification form plugin
 
 
 
@@ -40,8 +30,8 @@ INSTALLATION
 
 ### Install from an Archive File
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+
+Download the current project to your server directory
 
 Set cookie validation key in `config/web.php` file to some random secret string:
 
@@ -55,27 +45,7 @@ Set cookie validation key in `config/web.php` file to some random secret string:
 You can then access the application through the following URL:
 
 ~~~
-http://localhost/basic/web/
-~~~
-
-
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this project template using the following command:
-
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:~1.0.0"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
-
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
-
-~~~
-http://localhost/basic/web/
+http://localhost/project/web/
 ~~~
 
 
@@ -84,7 +54,9 @@ CONFIGURATION
 
 ### Database
 
-Edit the file `config/db.php` with real data, for example:
+
+``` config/data_admin.php ```
+``` config/data_app.php ```
 
 ```php
 return [
@@ -95,7 +67,8 @@ return [
     'charset' => 'utf8',
 ];
 ```
+LOGIN
+-------------
 
-**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
-
-Also check and edit the other files in the `config/` directory to customize your application.
+username ```admin```
+password ```admin```
