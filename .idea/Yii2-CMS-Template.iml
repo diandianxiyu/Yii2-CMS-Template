@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/alpha" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/beta" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" packagePrefix="app" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/yaml" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/event-dispatcher" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/fallback" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/fzaninotto/faker/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2" isTestSource="false" packagePrefix="yii" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/guzzle/plugin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/guzzle/http" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/guzzle/parser" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/guzzle/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/guzzle/stream" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/Apc/fallback" isTestSource="false" packagePrefix="Apc" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/Apc/alpha" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/oss/libs/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/Apc/beta" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

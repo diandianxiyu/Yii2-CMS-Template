@@ -58,7 +58,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="<?php echo Yii::$app->urlManager->createUrl([ 'site/index']) ?>">
-                        <img src="<?php echo Yii::$app->request->baseUrl ?>/metronic/admin/layout/img/logo1.png" alt="logo" class="logo-default"/>
+                        <img src="<?php echo Yii::$app->request->baseUrl ?>/metronic/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
                     </a>
                     <div class="menu-toggler sidebar-toggler hide">
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
